@@ -1,0 +1,70 @@
+package com.example.froogygoogy.breakthewall.testframework;
+
+import android.graphics.Bitmap;
+
+import com.example.froogygoogy.breakthewall.framework.Graphics;
+import com.example.froogygoogy.breakthewall.framework.IGameController;
+import com.example.froogygoogy.breakthewall.framework.TouchHandler;
+
+import java.util.List;
+
+public class TestFrameworkController implements IGameController {
+    private float currentX,currentY,targetX;
+    private boolean touching;
+    private float speed;
+    private int width,height,side;
+    private Graphics graphics;
+
+
+
+    public TestFrameworkController(int widthPixels, int heightPixels, int squareSide) {
+        width = widthPixels;
+        height = heightPixels;
+        side = squareSide;
+        currentX = (width/2)- (side/2);
+        currentY = height/2;
+        speed = width;
+        touching = false;
+        graphics = new Graphics(width,height);
+    }
+
+    @Override
+    public void onUpdate(float deltaTime, List<TouchHandler.TouchEvent> touchEvents) {
+        for (TouchHandler.TouchEvent event : touchEvents) {
+            switch (event.type)
+            {
+                case TOUCH_DOWN:
+                case TOUCH_DRAGGED:
+                    touching = true;
+                    targetX = event.x;
+                    break;
+                case TOUCH_UP:
+                    touching = false;
+                    break;
+            }
+        }
+        if(currentX < targetX)
+        {
+            currentX += deltaTime*speed;
+            if(currentX > targetX)
+            {
+                currentX = targetX;
+            }
+        }
+        else
+        {
+            currentX -= deltaTime*speed;
+            if(currentX < targetX)
+            {
+                currentX = targetX;
+            }
+        }
+    }
+
+    @Override
+    public Bitmap onDrawingRequested() {
+        graphics.clear(0xFF00FF00);
+        graphics.drawRect(currentX,currentY,side,side,0xFFFF0000);
+        return graphics.getFrameBuffer();
+    }
+}
