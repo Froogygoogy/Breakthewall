@@ -48,4 +48,7 @@ public class Graphics {
         return frameBuffer.getHeight();
     }
 
+    public void drawBitmap(Bitmap ball, float x, float y) {
+        canvas.drawBitmap(ball,x,y,null);
+    }
 }

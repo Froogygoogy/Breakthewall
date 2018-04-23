@@ -1,17 +1,18 @@
-package com.example.froogygoogy.breakthewall.testframework;
+package com.example.froogygoogy.breakthewall.testBall;
 
+import android.content.Context;
 import android.util.DisplayMetrics;
 
 import com.example.froogygoogy.breakthewall.framework.GameActivity;
 import com.example.froogygoogy.breakthewall.framework.IGameController;
 
-public class TestFramework extends GameActivity {
-    private   TestFrameworkController controller;
+public class TestBall extends GameActivity {
+    private TestBallController controller;
     @Override
     protected IGameController buildGameController() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        this.controller = new TestFrameworkController(displayMetrics.widthPixels,displayMetrics.heightPixels,displayMetrics.widthPixels/10);
+        this.controller = new TestBallController(displayMetrics.widthPixels,displayMetrics.heightPixels, this);
         return controller;
     }
 }

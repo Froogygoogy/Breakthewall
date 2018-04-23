@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".testframework.TestFramework"/>
+        <activity android:name=".testBall.TestBall"/>
+
     </application>
 
 </manifest>

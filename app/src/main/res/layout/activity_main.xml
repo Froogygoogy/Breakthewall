@@ -17,6 +17,13 @@
             android:layout_height="wrap_content"
             android:onClick="testFramework"
             android:text="Test Framework" />
+
+        <Button
+            android:id="@+id/buttonTestBall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="testBall"
+            android:text="TEST BALL" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

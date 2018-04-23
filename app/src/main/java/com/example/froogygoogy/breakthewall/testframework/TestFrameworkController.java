@@ -18,14 +18,14 @@ public class TestFrameworkController implements IGameController {
 
 
     public TestFrameworkController(int widthPixels, int heightPixels, int squareSide) {
-        width = widthPixels;
-        height = heightPixels;
-        side = squareSide;
-        currentX = (width/2)- (side/2);
-        currentY = height/2;
-        speed = width;
-        touching = false;
-        graphics = new Graphics(width,height);
+        this.width = widthPixels;
+        this.height = heightPixels;
+        this.side = squareSide;
+        this.currentX = (width/2)- (side/2);
+        this.currentY = height/2;
+        this.speed = width;
+        this.touching = false;
+        this.graphics = new Graphics(width,height);
     }
 
     @Override

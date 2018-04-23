@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.froogygoogy.breakthewall.testBall.TestBall;
 import com.example.froogygoogy.breakthewall.testframework.TestFramework;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,5 +19,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, TestFramework.class);
         startActivity(intent);
     }
-
+    public void testBall(View view) {
+        Intent intent = new Intent(this, TestBall.class);
+        startActivity(intent);
+    }
 }
