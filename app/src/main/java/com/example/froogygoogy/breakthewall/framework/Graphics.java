@@ -8,7 +8,6 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 
 import static android.graphics.Bitmap.Config.ARGB_8888;
-import static java.lang.System.out;
 
 /**
  * Created by jvilar on 29/03/16.
@@ -51,17 +50,5 @@ public class Graphics {
 
     public void drawBitmap(Bitmap ball, float x, float y) {
         canvas.drawBitmap(ball,x,y,null);
-    }
-
-    public void drawBitmap(Bitmap bitmap, float x, float y, float minX, float maxX) {
-        int leftDst = (int)Math.max(minX, x),
-                rightDst = (int) Math.min(maxX, x + bitmap.getWidth() - 1),
-                leftSrc = x >= minX ? 0 : (int) (minX - x),
-                rightSrc = leftSrc + rightDst - leftDst
-                        ;
-        Rect src = new Rect(leftSrc,(int)y,rightSrc, ((int) (y+bitmap.getHeight())));
-        Rect dst =  new Rect(leftDst,(int)y,rightDst, ((int) (y+bitmap.getHeight())));;
-
-        canvas.drawBitmap(bitmap,src,dst,null);
     }
 }
