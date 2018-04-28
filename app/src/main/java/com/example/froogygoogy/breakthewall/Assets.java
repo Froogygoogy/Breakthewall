@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 
 public class Assets {
     public static Bitmap ball;
+    public static Bitmap paddle;
 
     public static void createAssets (Context context, int brickWidth, int brickHeight)
     {
@@ -17,7 +18,14 @@ public class Assets {
                 BitmapFactory.decodeResource(resources, R.drawable.ball),
                 brickHeight, brickHeight, true
         );
-
+        if(paddle != null)
+        {
+            paddle.recycle();
+        }
+        paddle = Bitmap.createScaledBitmap(
+                BitmapFactory.decodeResource(resources, R.drawable.paddle),
+                brickWidth * 8 / 5, brickHeight, true
+        );
 
     }
 }
