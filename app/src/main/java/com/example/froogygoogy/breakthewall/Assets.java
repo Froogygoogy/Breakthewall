@@ -7,8 +7,6 @@ import android.graphics.BitmapFactory;
 
 public class Assets {
     public static Bitmap ball;
-    public static Bitmap bricks;//Esto hay que convertirlo a Array
-
 
     public static void createAssets (Context context, int brickWidth, int brickHeight)
     {
@@ -20,15 +18,6 @@ public class Assets {
                 brickHeight, brickHeight, true
         );
 
-        if (bricks != null)
-            bricks.recycle();
-        bricks = Bitmap.createScaledBitmap(
-                BitmapFactory.decodeResource(resources, R.drawable.bricks),
-                brickHeight, brickHeight, true
-        );
-
-
-        );
 
     }
 }
