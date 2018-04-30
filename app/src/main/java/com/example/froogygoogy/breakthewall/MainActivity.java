@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, TestBall.class);
         startActivity(intent);
     }
-    public void testPaddle(View view) {
+
+    public void testPaddle(View view){
         Intent intent = new Intent(this, TestPaddle.class);
         startActivity(intent);
     }

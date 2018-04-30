@@ -10,5 +10,5 @@ public interface Rectangular {
     float getWidth();
     float getHeight();
     float getSpeedX();
-    float getSeepdY();
+    float getSpeedY();
 }

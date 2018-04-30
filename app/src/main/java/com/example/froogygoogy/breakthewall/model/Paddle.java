@@ -38,7 +38,7 @@ public class Paddle implements BallCollider,Rectangular {
     }
 
     @Override
-    public float getSeepdY() {
+    public float getSpeedY() {
         return 0;
     }
 
@@ -66,7 +66,7 @@ public class Paddle implements BallCollider,Rectangular {
     }
     public void move(float deltaTime)
     {
-        if(moving = true)
+        if(moving == true)
         {
             if( x < target)
             {
