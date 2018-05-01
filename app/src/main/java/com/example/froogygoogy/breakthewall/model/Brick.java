@@ -1,6 +1,11 @@
-package com.jvilaruji.breakthewall.model;
+package com.example.froogygoogy.breakthewall.model;
 
-import static com.jvilaruji.breakthewall.model.CollisionTime.EPSILON;
+import com.example.froogygoogy.breakthewall.framework.BallCollider;
+import com.example.froogygoogy.breakthewall.framework.CollisionTime;
+import com.example.froogygoogy.breakthewall.framework.Rectangular;
+
+import static com.example.froogygoogy.breakthewall.framework.CollisionTime.EPSILON;
+
 
 /**
  * Created by jvilar on 6/04/18.
@@ -46,7 +51,7 @@ public class Brick implements BallCollider, Rectangular {
     }
 
     @Override
-    public float getSeepdY() {
+    public float getSpeedY() {
         return 0;
     }
 

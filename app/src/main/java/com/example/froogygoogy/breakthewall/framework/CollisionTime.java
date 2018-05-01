@@ -12,7 +12,7 @@ public class CollisionTime {
     public static float ballRectangular(Ball ball, Rectangular rectangular) {
         float x = ball.getX(), y = ball.getY(),
             sx = ball.getSpeedX() - rectangular.getSpeedX(),
-            sy = ball.getSpeedY() - rectangular.getSeepdY(),
+            sy = ball.getSpeedY() - rectangular.getSpeedY(),
             r = ball.getRadius();
         float xr = rectangular.getX(), yr = rectangular.getY(),
                 w = rectangular.getWidth(), h = rectangular.getHeight();
