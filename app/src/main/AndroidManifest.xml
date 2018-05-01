@@ -19,6 +19,7 @@
         <activity android:name=".testframework.TestFramework"/>
         <activity android:name=".testBall.TestBall"/>
         <activity android:name=".testPaddle.TestPaddle"/>
+        <activity android:name=".testBricks.TestBricks"/>
     </application>
 
 </manifest>

@@ -20,49 +20,6 @@ public class Assets {
                 brickHeight, brickHeight, true
         );
 
-/*
-        if (bricks != null)
-            bricks.recycle();
-        bricks = Bitmap.createScaledBitmap(
-                BitmapFactory.decodeResource(resources, R.drawable.bricks),
-                brickHeight, brickHeight, true
-        );
-
-*/
-
-        if(bricks[0] != null)
-        {
-            for (Bitmap brick:bricks
-                 ) {
-                brick.recycle();
-            }
-        }
-        bricks[0] = Bitmap.createScaledBitmap(
-                BitmapFactory.decodeResource(resources, R.drawable.brick),
-                brickWidth, brickHeight, true
-
-        );
-        bricks[1] = Bitmap.createScaledBitmap(
-                BitmapFactory.decodeResource(resources, R.drawable.brickgreen),
-                brickWidth, brickHeight, true
-
-        );
-        bricks[2] = Bitmap.createScaledBitmap(
-                BitmapFactory.decodeResource(resources, R.drawable.brickpurple),
-                brickWidth, brickHeight, true
-
-        );
-        bricks[3] = Bitmap.createScaledBitmap(
-                BitmapFactory.decodeResource(resources, R.drawable.brickred),
-                brickWidth, brickHeight, true
-
-        );
-        bricks[4] = Bitmap.createScaledBitmap(
-                BitmapFactory.decodeResource(resources, R.drawable.brickyellow),
-                brickWidth, brickHeight, true
-
-        );
-
         if(paddle != null)
         {
             paddle.recycle();
@@ -72,6 +29,42 @@ public class Assets {
                 brickWidth * 8 / 5, brickHeight, true
 
         );
+
+
+        if(bricks != null)
+        {
+            for (Bitmap brick:bricks
+                    ) {
+                brick.recycle();
+            }
+        }
+        Bitmap brick1 = Bitmap.createScaledBitmap(
+                BitmapFactory.decodeResource(resources, R.drawable.brick),
+                brickWidth, brickHeight, true
+
+        );
+        Bitmap brick2 = Bitmap.createScaledBitmap(
+                BitmapFactory.decodeResource(resources, R.drawable.brickgreen),
+                brickWidth, brickHeight, true
+
+        );
+        Bitmap brick3 = Bitmap.createScaledBitmap(
+                BitmapFactory.decodeResource(resources, R.drawable.brickpurple),
+                brickWidth, brickHeight, true
+
+        );
+        Bitmap brick4 = Bitmap.createScaledBitmap(
+                BitmapFactory.decodeResource(resources, R.drawable.brickred),
+                brickWidth, brickHeight, true
+
+        );
+        Bitmap brick5 = Bitmap.createScaledBitmap(
+                BitmapFactory.decodeResource(resources, R.drawable.brickyellow),
+                brickWidth, brickHeight, true
+        );
+
+        bricks = new Bitmap[]{brick1,brick2,brick3,brick4,brick5};
+
 
     }
 }
