@@ -7,7 +7,7 @@ import android.graphics.BitmapFactory;
 
 public class Assets {
     public static Bitmap ball;
-    public static Bitmap bricks;//Esto hay que convertirlo a Array
+    public static Bitmap[] bricks;//Esto hay que convertirlo a Array
     public static Bitmap paddle;
 
     public static void createAssets (Context context, int brickWidth, int brickHeight)
@@ -20,7 +20,7 @@ public class Assets {
                 brickHeight, brickHeight, true
         );
 
-/*/
+/*
         if (bricks != null)
             bricks.recycle();
         bricks = Bitmap.createScaledBitmap(
@@ -28,7 +28,40 @@ public class Assets {
                 brickHeight, brickHeight, true
         );
 
-/*/
+*/
+
+        if(bricks[0] != null)
+        {
+            for (Bitmap brick:bricks
+                 ) {
+                brick.recycle();
+            }
+        }
+        bricks[0] = Bitmap.createScaledBitmap(
+                BitmapFactory.decodeResource(resources, R.drawable.brick),
+                brickWidth, brickHeight, true
+
+        );
+        bricks[1] = Bitmap.createScaledBitmap(
+                BitmapFactory.decodeResource(resources, R.drawable.brickgreen),
+                brickWidth, brickHeight, true
+
+        );
+        bricks[2] = Bitmap.createScaledBitmap(
+                BitmapFactory.decodeResource(resources, R.drawable.brickpurple),
+                brickWidth, brickHeight, true
+
+        );
+        bricks[3] = Bitmap.createScaledBitmap(
+                BitmapFactory.decodeResource(resources, R.drawable.brickred),
+                brickWidth, brickHeight, true
+
+        );
+        bricks[4] = Bitmap.createScaledBitmap(
+                BitmapFactory.decodeResource(resources, R.drawable.brickyellow),
+                brickWidth, brickHeight, true
+
+        );
 
         if(paddle != null)
         {
