@@ -1,5 +1,7 @@
 package com.example.froogygoogy.breakthewall.testBricks;
 
+import android.util.Log;
+
 import com.example.froogygoogy.breakthewall.Assets;
 import com.example.froogygoogy.breakthewall.framework.BallCollider;
 import com.example.froogygoogy.breakthewall.model.Ball;
@@ -52,13 +54,14 @@ public class TestBricksModel {
         ball.setSpeedY(-ball.getSpeedX());
 
         float yBrick = 0.2f * boardHeight;
-        for (int i = 0; i < BRICKS_IN_ROW; i++)
+        bricks = new LinkedList<Brick>();
+        for (int i = 0; i <= BRICKS_IN_ROW -1; i++)
         {
             Brick brick = new Brick(i * brickWidth, yBrick,
                     brickWidth, brickHeight, i % Assets.bricks.length);
             bricks.add(brick);
-
-        }
+         }
+        Log.d("YBRICK",""+yBrick);
 
 
         ballColliders = new LinkedList<BallCollider>();

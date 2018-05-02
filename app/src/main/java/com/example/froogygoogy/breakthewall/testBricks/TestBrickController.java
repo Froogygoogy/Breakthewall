@@ -2,6 +2,7 @@ package com.example.froogygoogy.breakthewall.testBricks;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import com.example.froogygoogy.breakthewall.Assets;
 import com.example.froogygoogy.breakthewall.framework.Graphics;
@@ -57,7 +58,7 @@ public class TestBrickController implements IGameController {
     @Override
     public Bitmap onDrawingRequested() {
         graphics.clear(0xFF000000);
-        graphics.drawRect(xboard,yboard,boardWidth,boardHeight,0xFFFF0000);
+        graphics.drawRect(xboard,yboard,boardWidth,boardHeight,0xFF0000FF);
         float x = model.getBall().getX() + xboard, y = model.getBall().getY() + yboard;
         graphics.drawBitmap(Assets.paddle, model.getPaddle().getX() + xboard,
                 model.getPaddle().getY() + yboard, xboard, xboard + boardWidth - 1);
@@ -65,6 +66,7 @@ public class TestBrickController implements IGameController {
         for (Brick brick:model.getBricks()
              ) {
             graphics.drawBitmap(Assets.bricks[brick.getColor()],brick.getX(),brick.getY());
+            Log.d("Brick","Posx="+brick.getX()+"Posy="+brick.getY());
         }
 
         return graphics.getFrameBuffer();
