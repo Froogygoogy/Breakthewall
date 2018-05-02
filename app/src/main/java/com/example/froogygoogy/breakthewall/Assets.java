@@ -25,7 +25,7 @@ public class Assets {
             paddle.recycle();
         }
         paddle = Bitmap.createScaledBitmap(
-                BitmapFactory.decodeResource(resources, R.drawable.brick),
+                BitmapFactory.decodeResource(resources, R.drawable.paddle),
                 brickWidth * 8 / 5, brickHeight, true
 
         );

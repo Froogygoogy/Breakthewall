@@ -59,7 +59,7 @@ public class Graphics {
                 leftSrc = x >= minX ? 0 : (int) (minX - x),
                 rightSrc = leftSrc + rightDst - leftDst
                         ;
-        Rect src = new Rect(leftSrc,(int)y,rightSrc, ((int) (y+bitmap.getHeight())));
+        Rect src = new Rect(leftSrc,0,rightSrc, ((int) (bitmap.getHeight())));
         Rect dst =  new Rect(leftDst,(int)y,rightDst, ((int) (y+bitmap.getHeight())));;
 
         canvas.drawBitmap(bitmap,src,dst,null);
