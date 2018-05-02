@@ -24,8 +24,8 @@ public class Board implements BallCollider{
     @Override
     public float collisionTime(Ball ball) {
         float x = ball.getX(), y = ball.getY(), sx = ball.getSpeedX(), sy = ball.getSpeedY(), r = ball.getRadius();
-        float h = 0,v=0;
-        if(x<r || x > (this.width - r) || y < r || y > (this.height - r) )
+        float h = 0, v=0;
+        if(x < r || x > (this.width - r) || y < r || y > (this.height - r) )
         {
             return  CollisionTime.EPSILON;
         }
@@ -68,20 +68,20 @@ public class Board implements BallCollider{
     public void bounce(Ball ball) {
         float x = ball.getX(), y = ball.getY(), r = ball.getRadius();
 
-        if (x - r <= 0) {//left
-            ball.setX(2 * x - r);
+        if ((x - r) <= 0) {//left
+            ball.setX(2 * r - x);
             ball.setSpeedX(Math.abs(ball.getSpeedX()));
         }
-        if (x + r >= width) {//right
-            ball.setX(2 * x + r - width);
+        else if ((x + r) >= width) {//right
+            ball.setX(2 * (width - r) - x);
             ball.setSpeedX(-Math.abs(ball.getSpeedX()));
         }
-        if (y - r <= 0) {//top
-            ball.setY(2 * y - r);
+        else if ((y - r) <= 0) {//top
+            ball.setY(2 * r - y);
             ball.setSpeedY(Math.abs(ball.getSpeedY()));
         }
-        if (y + r >= height) {//bottom
-            ball.setY(2 * y + r - height);
+        else if ((y + r) >= height) {//bottom
+            ball.setY(2 * (height - r) - y);
             ball.setSpeedY(-Math.abs(ball.getSpeedY()));
         }
     }

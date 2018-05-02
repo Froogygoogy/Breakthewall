@@ -65,7 +65,7 @@ public class TestBrickController implements IGameController {
         graphics.drawBitmap(Assets.ball, x, y);
         for (Brick brick:model.getBricks()
              ) {
-            graphics.drawBitmap(Assets.bricks[brick.getColor()],brick.getX(),brick.getY());
+            graphics.drawBitmap(Assets.bricks[brick.getColor()],brick.getX()+ xboard,brick.getY()+ yboard);
             Log.d("Brick","Posx="+brick.getX()+"Posy="+brick.getY());
         }
 

@@ -31,7 +31,11 @@ public class TestPaddleModel {
         ball.setSpeedX((float) (boardWidth * (Math.sqrt(2)/2)));
         ball.setSpeedY(-ball.getSpeedX());
 
-        paddle = new Paddle((boardWidth/2)-(Assets.paddle.getWidth()/2),(boardHeight/2)-(Assets.paddle.getHeight()/2),Assets.paddle.getWidth(),Assets.paddle.getHeight(),boardWidth);
+        paddle = new Paddle((boardWidth/2)-(Assets.paddle.getWidth()/2),
+                (boardHeight/2)-(Assets.paddle.getHeight()/2),
+                Assets.paddle.getWidth(),
+                Assets.paddle.getHeight(),
+                boardWidth);
 
         ballColliders = new LinkedList<BallCollider>();
         ballColliders.add(paddle);
@@ -83,7 +87,4 @@ public class TestPaddleModel {
             }
         }
     }
-
-
-
 }

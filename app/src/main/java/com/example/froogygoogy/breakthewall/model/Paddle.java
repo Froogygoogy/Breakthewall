@@ -1,5 +1,7 @@
 package com.example.froogygoogy.breakthewall.model;
 
+import android.util.Log;
+
 import com.example.froogygoogy.breakthewall.framework.BallCollider;
 import com.example.froogygoogy.breakthewall.framework.CollisionTime;
 import com.example.froogygoogy.breakthewall.framework.Rectangular;
@@ -97,11 +99,12 @@ public class Paddle implements BallCollider,Rectangular {
     public void bounce(Ball ball) {
         float dx = ball.getX() - (x + width / 2);
         float dy = ball.getY() - (y + height / 2);
-        dx = (float) (dx / Math.sqrt((Math.pow(dx,2)+Math.pow(dy,2))));
-        dy  = (float) (dy / Math.sqrt((Math.pow(dx,2)+Math.pow(dy,2))));
+        dx /= (float) Math.sqrt(Math.pow(dx,2)+Math.pow(dx,2));
+        dy  /= (float)  Math.sqrt(Math.pow(dy,2)+Math.pow(dy,2));
 
-        float ballSpeed = (float) Math.sqrt((Math.pow(ball.getSpeedX(),2)+Math.pow( ball.getSpeedY(),2)));
+        float ballSpeed = (float) Math.sqrt((Math.pow(ball.getSpeedX(),2))+ (Math.pow(ball.getSpeedY(),2)));
 
+        Log.d("SPEED","X"+(ballSpeed*dx)+"Y"+(ballSpeed*dy));
         ball.setSpeedX(ballSpeed*dx);
         ball.setSpeedY(ballSpeed*dy);
     }
