@@ -20,6 +20,7 @@
         <activity android:name=".testBall.TestBall"/>
         <activity android:name=".testPaddle.TestPaddle"/>
         <activity android:name=".testBricks.TestBricks"/>
+        <activity android:name=".testLevels.TestLevels"/>
     </application>
 
 </manifest>
