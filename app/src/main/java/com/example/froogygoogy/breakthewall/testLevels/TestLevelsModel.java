@@ -11,24 +11,32 @@ import com.example.froogygoogy.breakthewall.model.Paddle;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
 
 public class TestLevelsModel {
     private static final float ASPECT_RATIO = 2.0f/3;
     private static final float WIDTH_FRACTION = 0.94f;
     private static final int BRICKS_IN_ROW = 10;
 
+
     private Ball ball;
     private Board board;
     private Paddle paddle;
+    private Level level;
+
+
     LinkedList<BallCollider> ballColliders;
+    public State state;
 
-    public List<Brick> getBricks() {
-        return bricks;
+    public enum State {
+        WAITING_UP, WAITING_DOWN, PLAYING
     }
-
     List<Brick> bricks;
     float boardWidth;
     float boardHeight;
+    public List<Brick> getBricks() {
+        return bricks;
+    }
     public Ball getBall(){
         return ball;
     }
@@ -37,49 +45,51 @@ public class TestLevelsModel {
         return paddle;
     }
 
-    public TestLevelsModel(float width, float height){
-        int brickWidth = (int) (width * WIDTH_FRACTION / BRICKS_IN_ROW);
-        int brickHeight = brickWidth * 2 / 5;
+    public Level getLevel(){return level;}
 
-        this.boardWidth = brickWidth * BRICKS_IN_ROW;
-        this.boardHeight = boardWidth / ASPECT_RATIO;
+    public TestLevelsModel(){
 
-        board = new Board(boardWidth,boardHeight);
 
+        //tiene que ser esto la ultima linea
+        startLevel(0);
+    }
+
+
+    public void onTouchUp() {
+        if(state == state.WAITING_UP){
+            state = State.WAITING_DOWN;
+        }
+
+    }
+
+    public void onTouch(float x, float y){
+        if (state == State.WAITING_DOWN){
+            state = State.PLAYING;
+
+        }
+    }
+
+
+    public void startLevel(int n, com.example.froogygoogy.breakthewall.model.Level level){
+       this.level = level;
 
         paddle = new Paddle((boardWidth/2)-(Assets.paddle.getWidth()/2), (float) (( 0.9 * boardHeight)-(Assets.paddle.getHeight()/2)),Assets.paddle.getWidth(),Assets.paddle.getHeight(),boardWidth);
-
         ball = new Ball(boardWidth/2, paddle.getY() - Assets.ball.getWidth()/2 , Assets.ball.getWidth()/2);
         ball.setSpeedX((float) (boardWidth * (Math.sqrt(2)/2)));
         ball.setSpeedY(-ball.getSpeedX());
 
-        float yBrick = 0.2f * boardHeight;
-        bricks = new LinkedList<Brick>();
-        for (int i = 0; i <= BRICKS_IN_ROW -1; i++)
-        {
-            Brick brick = new Brick(i * brickWidth, yBrick,
-                    brickWidth, brickHeight, i % Assets.bricks.length);
-            bricks.add(brick);
-         }
-        Log.d("YBRICK",""+yBrick);
+        bricks.clear();
 
+        //falta por acabar esto
 
-        ballColliders = new LinkedList<BallCollider>();
-        ballColliders.add(paddle);
-        ballColliders.add(board);
-        ballColliders.addAll(bricks);
-    }
+        ballColliders.clear();
+        state = State.WAITING_UP;
 
-    public void onTouchUp() {
-        paddle.setMoving(false);
-    }
-
-    public void onTouch(float x, float y){
-        paddle.setTarget(x);
-        paddle.setMoving(true);
     }
 
     public void onUpdate(float deltaTime){
+
+        if (state != State.PLAYING){return;}
 
         float remainingTime = deltaTime;
         float minCTime  = deltaTime;
@@ -110,6 +120,10 @@ public class TestLevelsModel {
                 {
                     bricks.remove(ballColliders.get(pos));
                     ballColliders.remove(ballColliders.get(pos));
+                    if(bricks.isEmpty()){
+                        // call setLevel with the next level and do a return from the function
+
+                    }
                 }
             }
 

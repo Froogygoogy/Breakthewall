@@ -27,33 +27,33 @@ public class TestLevels extends GameActivity {
             colors[0][row] = new int [BRICKS_IN_ROW];
             for (int col = 0; col< BRICKS_IN_ROW; col ++)
             {
-                colors[0][row][col] = (row + col) %% Assets.bricks.length;
+                colors[0][row][col] = (row + col) % Assets.bricks.length;
             }
         }
 
         //SECOND LEVEL
-        int nrows = 4;
-        colors[0] = new int[nrows][];
+        int mrows = 4;
+        colors[0] = new int[mrows][];
 
-        for (int row = 0;row < nrows; row++)
+        for (int row = 0;row < mrows; row++)
         {
             colors[0][row] = new int [BRICKS_IN_ROW];
             for (int col = 0; col< BRICKS_IN_ROW; col ++)
             {
-                colors[0][row][col] = (row + col) %% Assets.bricks.length;
+                colors[0][row][col] = (row + col) % Assets.bricks.length;
             }
         }
 
         //THIRD LEVEL
-        int nrows = 5;
-        colors[0] = new int[nrows][];
+        int lrows = 5;
+        colors[0] = new int[lrows][];
 
-        for (int row = 0;row < nrows; row++)
+        for (int row = 0;row < lrows; row++)
         {
             colors[0][row] = new int [BRICKS_IN_ROW];
             for (int col = 0; col< BRICKS_IN_ROW; col ++)
             {
-                colors[0][row][col] = (row + col) %% Assets.bricks.length;
+                colors[0][row][col] = (row + col) % Assets.bricks.length;
             }
         }
 
@@ -71,7 +71,7 @@ public class TestLevels extends GameActivity {
             return colors[colors.length-1];
         }
     }
-    
+
 
     @Override
     protected IGameController buildGameController() {
