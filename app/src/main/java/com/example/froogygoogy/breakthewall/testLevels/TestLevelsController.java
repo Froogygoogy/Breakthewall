@@ -9,7 +9,6 @@ import com.example.froogygoogy.breakthewall.framework.Graphics;
 import com.example.froogygoogy.breakthewall.framework.IGameController;
 import com.example.froogygoogy.breakthewall.framework.TouchHandler;
 import com.example.froogygoogy.breakthewall.model.Brick;
-import com.example.froogygoogy.breakthewall.testBricks.TestBricksModel;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class TestLevelsController implements IGameController {
     private static final int BRICKS_IN_ROW = 10;
 
     private Graphics graphics;
-    private TestBricksModel model;
+    private TestLevelsModel model;
     private float xboard,yboard;
 
     float boardWidth;
@@ -35,7 +34,7 @@ public class TestLevelsController implements IGameController {
         Assets.createAssets(context,brickWidth,brickHeight);
         this.xboard = (width - boardWidth) / 2;
         this.yboard = (height - boardHeight) / 2;
-        model = new TestBricksModel(width,width);
+        model = new TestLevelsModel(width,width);
         this.graphics = new Graphics(width,height);
     }
 

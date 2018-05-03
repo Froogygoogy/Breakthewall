@@ -1,6 +1,7 @@
 package com.example.froogygoogy.breakthewall.testLevels;
 
 import android.util.DisplayMetrics;
+import android.util.Log;
 
 import com.example.froogygoogy.breakthewall.Assets;
 import com.example.froogygoogy.breakthewall.framework.GameActivity;
@@ -8,76 +9,13 @@ import com.example.froogygoogy.breakthewall.framework.IGameController;
 import com.example.froogygoogy.breakthewall.testBricks.TestBrickController;
 
 public class TestLevels extends GameActivity {
-    private TestBrickController controller;
-
-    public static final int NO_BRICK = -1;
-    private static final int BRICKS_IN_ROW = 10;
-    private static int[][][] colors;
-
-    static{
-
-        colors = new int[10][][];
-
-        //FIRST LEVEL
-        int nrows = 2;
-        colors[0] = new int[nrows][];
-
-        for (int row = 0;row < nrows; row++)
-        {
-            colors[0][row] = new int [BRICKS_IN_ROW];
-            for (int col = 0; col< BRICKS_IN_ROW; col ++)
-            {
-                colors[0][row][col] = (row + col) %% Assets.bricks.length;
-            }
-        }
-
-        //SECOND LEVEL
-        int nrows = 4;
-        colors[0] = new int[nrows][];
-
-        for (int row = 0;row < nrows; row++)
-        {
-            colors[0][row] = new int [BRICKS_IN_ROW];
-            for (int col = 0; col< BRICKS_IN_ROW; col ++)
-            {
-                colors[0][row][col] = (row + col) %% Assets.bricks.length;
-            }
-        }
-
-        //THIRD LEVEL
-        int nrows = 5;
-        colors[0] = new int[nrows][];
-
-        for (int row = 0;row < nrows; row++)
-        {
-            colors[0][row] = new int [BRICKS_IN_ROW];
-            for (int col = 0; col< BRICKS_IN_ROW; col ++)
-            {
-                colors[0][row][col] = (row + col) %% Assets.bricks.length;
-            }
-        }
-
-
-
-
-
-    }
-
-
-    public static int[][] getLevel(int n) {
-
-        if (n < colors.length) return colors[n];
-        else{
-            return colors[colors.length-1];
-        }
-    }
-    
+    private TestLevelsController controller;
 
     @Override
     protected IGameController buildGameController() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        this.controller = new TestBrickController(displayMetrics.widthPixels,displayMetrics.heightPixels, this);
+        this.controller = new TestLevelsController(displayMetrics.widthPixels,displayMetrics.heightPixels, this);
         return controller;
     }
 
